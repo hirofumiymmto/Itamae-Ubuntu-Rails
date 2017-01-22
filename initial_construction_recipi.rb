@@ -1,4 +1,5 @@
 RBENV_PATH = %(export PATH="$HOME/.rbenv/bin:$PATH")
+CHMOD = "sudo chown -R ubuntu:ubuntu ~/.rbenv"
 execute "ubuntu update" do
   command "sudo apt-get -y update"
   command "sudo apt-get -y upgrade"
@@ -12,7 +13,7 @@ execute "rbenv install" do
   command "git clone https://github.com/sstephenson/rbenv.git ~/.rbenv && git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build"
 end
 execute "chown rbenv" do
-  command "chown -R ubuntu:ubuntu ~/.rbenv"
+  command "sudo chown -R ubuntu:ubuntu ~/.rbenv"
 end
 execute "update .profile for rbenv" do
   not_if %(#{RBENV_PATH} && rbenv --help)
@@ -31,5 +32,12 @@ execute "apply rbenv specific version" do
   command "#{RBENV_PATH} && rbenv global 2.3.3"
 end
 execute "install bundler" do
-  command "#{RBENV_PATH} && rbenv exec gem install bundler"
+  command "sudo chown -R ubuntu:ubuntu ~/.rbenv"
+  command "#{CHMOD} && #{RBENV_PATH} && rbenv exec gem install bundler"
+end
+execute "install libsqlite3 for sqlite3" do
+  command "sudo apt-get -y install libsqlite3-dev"
+end
+execute "install sqlite3 for rails" do
+  command %(#{CHMOD} && #{RBENV_PATH} && rbenv exec gem install sqlite3 -v '1.3.13')
 end
