@@ -8,7 +8,6 @@ package 'libssl-dev'
 package 'libreadline-dev'
 package 'git'
 package 'nginx'
-package 'rbenv'
 package 'libsqlite3-dev'
 
 execute "rbenv install" do
