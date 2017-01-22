@@ -31,8 +31,8 @@ execute "install bundler" do
   command "#{REROAD_PROFILE} && rbenv exec gem install bundler"
 end
 execute "install sqlite3 for rails" do
-  command %(#{REROAD_PROFILE} && rbenv exec gem install sqlite3)
+  command "#{REROAD_PROFILE} && rbenv exec gem install sqlite3"
 end
 execute "install rails" do
-  command %(#{REROAD_PROFILE} && rbenv exec gem install rails)
+  command "#{REROAD_PROFILE} && rbenv exec gem install rails"
 end
