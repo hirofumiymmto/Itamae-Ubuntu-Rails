@@ -35,7 +35,7 @@ execute "install libsqlite3 for sqlite3" do
   command "sudo apt-get -y install libsqlite3-dev"
 end
 execute "install sqlite3 for rails" do
-  command %(#{REROAD_PROFILE} && rbenv exec gem install sqlite3 -v '1.3.13')
+  command %(#{REROAD_PROFILE} && rbenv exec gem install sqlite3)
 end
 execute "install nginx" do
   command "sudo apt-get -y install nginx"
