@@ -30,3 +30,6 @@ end
 execute "apply rbenv specific version" do
   command "#{RBENV_PATH} && rbenv global 2.3.3"
 end
+execute "install bundler" do
+  command "#{RBENV_PATH} && rbenv exec gem install bundler"
+end
