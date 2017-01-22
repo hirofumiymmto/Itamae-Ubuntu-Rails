@@ -32,7 +32,6 @@ execute "apply rbenv specific version" do
   command "#{RBENV_PATH} && rbenv global 2.3.3"
 end
 execute "install bundler" do
-  command "sudo chown -R ubuntu:ubuntu ~/.rbenv"
   command "#{CHMOD} && #{RBENV_PATH} && rbenv exec gem install bundler"
 end
 execute "install libsqlite3 for sqlite3" do
