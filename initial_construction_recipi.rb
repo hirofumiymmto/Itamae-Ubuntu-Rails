@@ -1,5 +1,4 @@
 RBENV_PATH = %(export PATH="$HOME/.rbenv/bin:$PATH")
-# CHOWN = "sudo chown -R ubuntu:ubuntu ~/.rbenv"
 execute "ubuntu update" do
   command "sudo apt-get -y update && sudo apt-get -y upgrade && sudo apt-get -y dist-upgrade"
 end
