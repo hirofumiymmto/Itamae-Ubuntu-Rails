@@ -43,3 +43,6 @@ end
 execute "nginx start" do
   command "sudo /etc/init.d/nginx start"
 end
+execute "install rails" do
+  command %(#{REROAD_PROFILE} && rbenv exec gem install rails)
+end
