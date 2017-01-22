@@ -41,3 +41,9 @@ end
 execute "install sqlite3 for rails" do
   command %(#{CHMOD} && #{RBENV_PATH} && rbenv exec gem install sqlite3 -v '1.3.13')
 end
+execute "install nginx" do
+  command "sudo apt-get -y install nginx"
+end
+execute "nginx start" do
+  command "sudo /etc/init.d/nginx start"
+end
