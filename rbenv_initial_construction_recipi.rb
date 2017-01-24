@@ -1,6 +1,6 @@
 REROAD_PROFILE = ". ~/.profile"
 execute "ubuntu update" do
-  command "sudo apt-get -y update"
+  command "apt-get -y update"
 end
 
 package 'build-essential'
