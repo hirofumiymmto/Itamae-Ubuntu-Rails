@@ -14,12 +14,9 @@ execute "rbenv install" do
   not_if "ls ~/.rbenv"
   command "git clone https://github.com/sstephenson/rbenv.git ~/.rbenv && git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build"
 end
-execute "chown rbenv" do
-  command "sudo chown -R ubuntu:ubuntu ~/.rbenv"
-end
 execute "update .profile for rbenv" do
   not_if %(#{REROAD_PROFILE} && rbenv --help)
-  command %(sudo echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.profile && sudo echo 'eval "$(rbenv init -)"' >> ~/.profile)
+  command %(echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.profile && echo 'eval "$(rbenv init -)"' >> ~/.profile)
 end
 execute "install ruby" do
   command "#{REROAD_PROFILE} && rbenv install -s 2.3.1"
