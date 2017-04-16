@@ -1,0 +1,21 @@
+execute "update & upgrade" do
+  command "apt-get -y update && apt-get -y upgrade --show-upgraded"
+end
+package 'vim'
+package 'git'
+package 'curl'
+package 'libxslt-dev'
+package 'libxml2-dev'
+package 'libdjvulibre-dev'
+package 'libjpeg-dev'
+package 'libtiff-dev'
+package 'libwmf-dev'
+package 'libmagickcore-dev'
+package 'libmagickwand-dev'
+package 'libmagick++-dev'
+package 'libcurl4-openssl-dev'
+package 'libffi-dev'
+package 'libav-tools'
+package 'libmysqlclient-dev'
+package 'libssl-dev'
+package 'libreadline-dev'
