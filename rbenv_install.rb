@@ -13,9 +13,3 @@ execute "update .profile for rbenv" do
   not_if %(#{REROAD_PROFILE} && rbenv --help)
   command %(echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.profile && echo 'eval "$(rbenv init -)"' >> ~/.profile)
 end
-execute "install ruby" do
-  command "#{REROAD_PROFILE} && rbenv install -s 2.3.1"
-end
-execute "apply rbenv specific version" do
-  command "#{REROAD_PROFILE} && rbenv global 2.3.1"
-end
