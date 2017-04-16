@@ -4,11 +4,6 @@ execute "ubuntu update" do
 end
 
 package 'build-essential'
-package 'libssl-dev'
-package 'libreadline-dev'
-package 'git'
-package 'nginx'
-package 'libsqlite3-dev'
 
 execute "rbenv install" do
   not_if "ls ~/.rbenv"
@@ -23,13 +18,4 @@ execute "install ruby" do
 end
 execute "apply rbenv specific version" do
   command "#{REROAD_PROFILE} && rbenv global 2.3.1"
-end
-execute "install bundler" do
-  command "#{REROAD_PROFILE} && rbenv exec gem install bundler"
-end
-execute "install sqlite3 for rails" do
-  command "#{REROAD_PROFILE} && rbenv exec gem install sqlite3"
-end
-execute "install rails" do
-  command "#{REROAD_PROFILE} && rbenv exec gem install rails"
 end
